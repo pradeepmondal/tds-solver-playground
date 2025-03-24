@@ -1,0 +1,10 @@
+name: Test Action
+
+on: push
+
+jobs:
+  test-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 21f2000709@ds.study.iitm.ac.in
+        run: echo "Hello, world!"
