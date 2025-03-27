@@ -1,0 +1,30 @@
+name: Daily Commit Workflow
+
+on:
+  schedule:
+    # Run at 10:30 AM UTC every day
+    - cron: '30 10 * * *'
+  # Optional: Allow manual triggering for testing
+  workflow_dispatch:
+
+jobs:
+  create-daily-commit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: 21f2000709@ds.study.iitm.ac.in
+        run: |
+          echo "Last updated: $(date)" > update.txt
+      
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Daily automated update"
+          commit_user_name: TDS
+          commit_user_email: tds@dummy
+          commit_author: "TDS Project"
